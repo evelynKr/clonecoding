@@ -1,0 +1,25 @@
+<!-- 바닐라 자바스크립트 버전 -->
+<!DOCTYPE html>
+<!-- 1. html 만들기 -->
+
+<body>
+    <!-- 5. HTML 업데이트하기 -->
+    <span id="counter">Total clicks: 0</span>
+    <button id="btn">Click me!</button>
+</body>
+<script>
+    let counter = 0;
+    // 2. JS에서 가져오기
+    const span = document.querySelector("span");
+    const button = document.getElementById("btn");
+    function handleClick() {
+        // 4. 데이터 업데이트 하기
+        counter = counter + 1;
+        // 5. HTML 업데이트하기
+        span.innerText = `Total clicks: ${counter}`;
+    }
+    // 3. 이벤트 감지하기
+    button.addEventListener("click", handleClick);
+</script>
+
+</html>
