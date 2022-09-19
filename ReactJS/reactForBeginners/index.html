@@ -5,11 +5,21 @@
 </body>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
     const root = document.getElementById("root");
-    const h3 = React.createElement("h3", { id: "title", onMouseEnter: () => console.log("mouse enter"), }, "Hello I'm a title");
-    const btn = React.createElement("button", { onClick: () => console.log("clicked"), style: { backgroundColor: "tomato", }, }, "Click me");
-    const container = React.createElement("div", null, [h3, btn]);
+    // 새로운 방식 JSX
+    // html방식과 똑같음!
+    const Title = <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title</h3>
+    const Button = <button style={{ backgroundColor: "tomato", }} onClick={() => console.log("clicked")}>Click me</button>
+    const container = React.createElement("div", null, [Title, Button]);
+
+    // 오래된 방식
+    // 이렇게 createElement 사용하지 않는이유는 여러가지 것들을 기억해가면서 진행해야 되기 때문이다. JSX는 이해하기 쉽다. 
+    // const h3 = React.createElement("h3", { id: "title", onMouseEnter: () => console.log("mouse enter"), }, "Hello I'm a title");
+    // const btn = React.createElement("button", { onClick: () => console.log("clicked"), style: { backgroundColor: "tomato", }, }, "Click me");
+    // const container = React.createElement("div", null, [h3, btn]);
+
     // render : 사용자에게 보여준다.
     ReactDOM.render(container, root);
 </script>
