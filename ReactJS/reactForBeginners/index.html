@@ -10,9 +10,20 @@
     const root = document.getElementById("root");
     // 새로운 방식 JSX
     // html방식과 똑같음!
-    const Title = <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title</h3>
-    const Button = <button style={{ backgroundColor: "tomato", }} onClick={() => console.log("clicked")}>Click me</button>
-    const container = React.createElement("div", null, [Title, Button]);
+    function Title() {
+        return (
+            <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title</h3>
+        );
+    }
+    const Button = () => (
+        <button style={{ backgroundColor: "tomato", }} onClick={() => console.log("clicked")}>Click me</button>
+    );
+    const Container = () => (
+        <div>
+            <Title />
+            <Button />
+        </div>
+    );
 
     // 오래된 방식
     // 이렇게 createElement 사용하지 않는이유는 여러가지 것들을 기억해가면서 진행해야 되기 때문이다. JSX는 이해하기 쉽다. 
@@ -21,7 +32,7 @@
     // const container = React.createElement("div", null, [h3, btn]);
 
     // render : 사용자에게 보여준다.
-    ReactDOM.render(container, root);
+    ReactDOM.render(<Container />, root);
 </script>
 
 </html>
