@@ -8,31 +8,17 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
-    // 새로운 방식 JSX
-    // html방식과 똑같음!
-    function Title() {
+    function App() {
+        const [counter, modifier] = React.useState(0);
         return (
-            <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title</h3>
+            <div>
+                <h3>Total clicks: {counter}</h3>
+                <button>Click me!</button>
+            </div>
         );
     }
-    const Button = () => (
-        <button style={{ backgroundColor: "tomato", }} onClick={() => console.log("clicked")}>Click me</button>
-    );
-    const Container = () => (
-        <div>
-            <Title />
-            <Button />
-        </div>
-    );
 
-    // 오래된 방식
-    // 이렇게 createElement 사용하지 않는이유는 여러가지 것들을 기억해가면서 진행해야 되기 때문이다. JSX는 이해하기 쉽다. 
-    // const h3 = React.createElement("h3", { id: "title", onMouseEnter: () => console.log("mouse enter"), }, "Hello I'm a title");
-    // const btn = React.createElement("button", { onClick: () => console.log("clicked"), style: { backgroundColor: "tomato", }, }, "Click me");
-    // const container = React.createElement("div", null, [h3, btn]);
-
-    // render : 사용자에게 보여준다.
-    ReactDOM.render(<Container />, root);
+    ReactDOM.render(<App />, root);
 </script>
 
 </html>
